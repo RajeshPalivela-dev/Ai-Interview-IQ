@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import jsonwebtoken from "jsonwebtoken"
 import cookieParser from "cookie-parser";
+import authRouter from "./routes/auth.js"
 
 
 
@@ -26,7 +27,9 @@ mongoose.connect(process.env.DB_URI).then(()=>{
 const port=process.env.PORT
 
 
-
+//initaily 
+//we will see mullpltiple tha time our code is very high split separate auth
+app.use("/auth",authRouter)
 
 app.listen(port,()=>{
       console.log(`server running on ${port}`)
