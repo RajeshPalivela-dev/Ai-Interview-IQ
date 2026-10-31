@@ -15,8 +15,8 @@ const userSchema=new mongoose.Schema({
       password:{
          type:String,
          required:true,
-         unique:true,
-         min:8,
+         
+        
 
       },
 
@@ -31,4 +31,4 @@ const userSchema=new mongoose.Schema({
       
 })
 
-export const User=mongoose.model("User",userSchema)
+export const Users=mongoose.model("Users",userSchema)

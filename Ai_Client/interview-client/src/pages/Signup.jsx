@@ -12,10 +12,11 @@ import {
   FaEyeSlash,
   FaUserPlus,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [hidepassword, setHidepassword] = useState(false);
+  const navigate=useNavigate()
 
   const [formValues, setFormValues] = useState({
     name: "",
@@ -54,15 +55,23 @@ const Signup = () => {
 
     try {
       const { confirmPassword, ...signupData } = formValues;
+      const body={
+            name:formValues.name,
+            email:formValues.email,
+            password:formValues.password,
+            age:formValues.values,
+            phone:formValues.phone
+      }
 
       const response = await axios.post(
         "http://localhost:4000/auth/signup",
-        signupData
+        body
       );
 
       console.log(response.data, "signup response");
       toast.success("Account created successfully!");
-
+       navigate("/login")
+        
       setFormValues({
         name: "",
         age: "",
