@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
+import ContextProvider from './ContextProvider'
 
 const AuthProtectedRoute = () => {
 
@@ -9,7 +10,9 @@ const AuthProtectedRoute = () => {
     }
   return (
     <div>
-        <Outlet/>
+      <ContextProvider>
+          <Outlet/>
+      </ContextProvider>
     </div>
   )
 }

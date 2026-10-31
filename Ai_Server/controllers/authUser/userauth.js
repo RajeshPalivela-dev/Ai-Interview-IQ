@@ -5,6 +5,8 @@ dotenv.config()
 import bcrypt from "bcryptjs"
 import jsonwebtoken from "jsonwebtoken"
 import { generateJWToken } from "../../utils/generateJWToken.js"
+
+
 export const signup=async(req,res)=>{
   console.log("singup hitting in userauth in contorleers")
    console.log(req.body,"in signup")
@@ -13,12 +15,13 @@ export const signup=async(req,res)=>{
   try{
    const {name,age,email,password,phone}=req.body
    console.log(email,"email")
+   console.log(age,"age")
 
   // const isValidUser=await Users.findOne({email})
   const isValidUser=await mongoose.connection.collection(valid).findOne({email})
   console.log(isValidUser,"isvaliduser")
   if(!isValidUser){
-     return res.status(400).json({message:"is not register in database"})
+     return res.status(400).json({message:"is not register in database Enviorment"})
   }
 
   //is validuser check user is exist in db or not

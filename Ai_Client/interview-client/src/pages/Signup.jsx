@@ -40,6 +40,8 @@ const Signup = () => {
     }));
   }
 
+  console.log(formValues,"fromvalues in sgnup")
+
   async function handleSignup(e) {
     e.preventDefault();
 
@@ -59,7 +61,7 @@ const Signup = () => {
             name:formValues.name,
             email:formValues.email,
             password:formValues.password,
-            age:formValues.values,
+            age:formValues.age,
             phone:formValues.phone
       }
 
@@ -102,8 +104,8 @@ const Signup = () => {
     {
       label: "Age",
       name: "age",
-      type: "number",
-      placeholder: "Enter your age",
+      type: "date",
+      placeholder: "Enter your Dob",
       icon: <FaCalendarAlt />,
     },
     {
@@ -191,8 +193,7 @@ const Signup = () => {
                     value={formValues[field.name]}
                     placeholder={field.placeholder}
                     onChange={updateFormData}
-                    min={field.name === "age" ? 1 : undefined}
-                    max={field.name === "age" ? 120 : undefined}
+                
                   />
                 </div>
               </div>

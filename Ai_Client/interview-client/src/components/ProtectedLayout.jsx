@@ -6,7 +6,7 @@ const ProtectedLayout = () => {
   const loginCredentials=JSON.parse(localStorage.getItem("userdetails"))
   console.log(loginCredentials,"logincreadeinas")
   if(loginCredentials!=null){
-      return <Navigate to="/" />
+      return <Navigate to="/"  />
   }
     
   

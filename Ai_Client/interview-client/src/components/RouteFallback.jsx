@@ -5,10 +5,16 @@ const RouteFallback = () => {
 
 
   return (
-    <div>
-        <h1>Page not found</h1>
-         <Link to="/">home</Link>
-         <Link to="/login">Login</Link>
+    <div className='flex justify-center items-center h-screen'>
+        <div className='flex flex-col gap-1.5'> 
+            <div>
+            <h1>Page not found</h1>
+        </div>
+        <div>
+             <Link to="/" className='text-blue-600 gap-1.5'>home</Link>
+         <Link to="/login" className ='text-green-500'>Login</Link>
+        </div>
+        </div>
     </div>
   )
 }
